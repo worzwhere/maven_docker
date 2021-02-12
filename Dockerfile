@@ -15,11 +15,8 @@ ENTRYPOINT ["/usr/bin/mvn"]
 # ----
 # Install project dependencies and keep sources
 # make source folder
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+# RUN mkdir -p /usr/src/app
+# WORKDIR /usr/src/app
 # install maven dependency packages (keep in image)
-COPY ./sample_jar/helloworld_rest_api/pom.xml /usr/src/app
-RUN mvn -f /usr/src/app/pom.xml clean package
-# RUN mvn -T 1C install && rm -rf target
-# copy other source files (keep in image)
-COPY src /usr/src/app/src
+COPY target/sample_jar/hello-world-rest-api.jar /tmp
+RUN ["java","-jar","/tmp/hello-world-rest-api.jar"]
