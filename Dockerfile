@@ -18,7 +18,7 @@ ENTRYPOINT ["/usr/bin/mvn"]
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 # install maven dependency packages (keep in image)
-COPY pom.xml /usr/src/app
+COPY ./sample_jar/helloworld_rest_api/pom.xml /usr/src/app
 RUN mvn -T 1C install && rm -rf target
 # copy other source files (keep in image)
 COPY src /usr/src/app/src
