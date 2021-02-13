@@ -19,6 +19,6 @@ ENTRYPOINT ["/usr/bin/mvn"]
 # WORKDIR /usr/src/app
 # install maven dependency packages (keep in image)
 ADD ./*.jar app.jar
-ENTRYPOINT ["sh", "-c", "java", "-jar", "/app.jar"]
+ENTRYPOINT ["sh", "-c", "java -jar /app.jar"]
 # COPY maven_docker/sample_jar/hello-world-rest-api.jar /tmp
 # RUN ["java","-jar","/tmp/hello-world-rest-api.jar"]
